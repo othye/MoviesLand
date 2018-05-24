@@ -32,21 +32,21 @@
             <h4>date de sortie :</h4> {{ movie.year_release }} <br>
             <h4>description :</h4> <p id="description">{{ movie.description }} </p>
 
-            <h4>genre:</h4> 
+            <h4>genre :</h4> 
                 <ul class="breadcrumbs">
                     {% for genres in genre %}
                         <li>{{ genres.name}}</li>
                     {% endfor %}
                 </ul>
                 <br>
-            <h4>réalisateur: </h4>
+            <h4>réalisateur : </h4>
                 <ul class="no-bullet">
                     {% for directors in director %}
                         <li>{{ directors.last_name}} {{ directors.first_name}}</li>
                     {% endfor %}
                 </ul>
                 <br>
-            <h4>acteur:</h4>
+            <h4>acteur :</h4>
                 <ul class="no-bullet">
                     {% for actors in actor %}
                         <li>{{ actors.last_name}} {{ actors.first_name}}</li>
