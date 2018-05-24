@@ -1,0 +1,50 @@
+.container{
+    background: #ede8e8;
+}
+
+.logo{
+    
+    margin-bottom: 50px;
+}
+
+.menu{
+    margin-left: 100px;
+}
+
+.content{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 50%;
+    background: white;
+}
+
+.movies{
+    display: block;
+    margin: 20px;
+    text-align: center;
+
+}
+
+.home_img{
+    height: 250px;
+
+}
+
+.home_title{
+    font-size: 20px;
+}
+
+
+
+#about{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#description{
+    width: 400px;
+}

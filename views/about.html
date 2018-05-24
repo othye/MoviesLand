@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/foundation.css">
+    <link rel="icon" type="image/png" href="assets/img/icon.png"/>
+
+    <title> {{ movie.title }}</title>
+</head>
+<body>
+    <div class="container">
+
+    <header class="menu align-center">
+        <div class="logo">
+            <img src="assets/img/logo.png">
+        </div>
+                
+    </header>
+    <nav class="menu " >
+        <a href="index.php?page=home" class="hollow button float-center">Go to Movies</a>
+    </nav>
+    
+    <section id="about" >
+        
+        <article class="info" >
+            <h3>Film : {{ movie.title }} </h3><br>
+            
+            <h4>date de sortie :</h4> {{ movie.year_release }} <br>
+            <h4>description :</h4> <p id="description">{{ movie.description }} </p>
+
+            <h4>genre:</h4> 
+                <ul class="breadcrumbs">
+                    {% for genres in genre %}
+                        <li>{{ genres.name}}</li>
+                    {% endfor %}
+                </ul>
+                <br>
+            <h4>réalisateur: </h4>
+                <ul class="no-bullet">
+                    {% for directors in director %}
+                        <li>{{ directors.last_name}} {{ directors.first_name}}</li>
+                    {% endfor %}
+                </ul>
+                <br>
+            <h4>acteur:</h4>
+                <ul class="no-bullet">
+                    {% for actors in actor %}
+                        <li>{{ actors.last_name}} {{ actors.first_name}}</li>
+                    {% endfor %}
+                </ul>   
+        </article>
+        <div class="image" >
+            <img class="about_img" src="assets/img/{{ movie.title }}.jpg">
+        </div>
+    </section>
+</div>
+</body>
+</html>
