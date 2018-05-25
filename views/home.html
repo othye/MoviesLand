@@ -2,7 +2,6 @@
 
 {% block title %} MoviesLand - Home {% endblock %}
 
-
 {% block content %}
 
     <section class="content responsive" id="home">
@@ -11,7 +10,7 @@
 
             <section class="movies">
                 <a href="page/about/{{ movie.id }}">
-                    <img class="home_img" src="assets/img/{{ movie.title }}.jpg" >
+                    <img class="home_img" src="{{ assets('img/')}}{{ movie.poster }}" >
                     <h2 class="home_title "> {{ movie.title }} </h2>
                 </a>
             </section>
@@ -19,4 +18,5 @@
         {% endfor %}
     
     </section>
+    
 {% endblock %}

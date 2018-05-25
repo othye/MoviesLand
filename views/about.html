@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}{{ movie.title }} {% endblock %}
+{% block title %} MoviesLand - {{ movie.title }} {% endblock %}
 
 
 {% block content %}
     <nav class="menu " >
-            <a href="/mvc_project" class="hollow button float-center">Retour au films </a>
+            <a  class="hollow button float-center" onclick="goBack()">Retour au films </a>
     </nav>
     <section id="about" >
         
@@ -38,8 +38,15 @@
         </article>
         
         <aside class="image" >
-            <img class="about_img" src="assets/img/{{ movie.title }}.jpg">
+            <img class="about_img" src="{{ assets('img/')}}{{ movie.poster }}">
         </aside>
 
     </section>
+    <script>
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
 {% endblock %}
