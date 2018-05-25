@@ -1,45 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="assets/css/foundation.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    
+{% block title %} MoviesLand - Home {% endblock %}
 
-    <link rel="icon" type="image/png" href="assets/img/icon.png"/>
-    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
-    
 
-    <title>MoviesLand</title>
-</head>
-<body>
-    <div class="container">
-        <header class="menu align-center">
-            <div class="logo">
-                <img src="assets/img/logo.png">
-            </div>
-           
-        </header>
-    
-        <section class="content responsive" id="home">
-            
-            {% for movie in movies %}
+{% block content %}
 
-                <section class="movies">
-                    <a href="page/about/{{ movie.id }}">
-                        <img class="home_img" src="assets/img/{{ movie.title }}.jpg" >
-                        <h2 class="home_title "> {{ movie.title }} </h2>
-                    </a>
-                </section>
-                
-            {% endfor %}
+    <section class="content responsive" id="home">
         
-        </section>
-    </div>
+        {% for movie in movies %}
 
-</body>
-</html>
-
+            <section class="movies">
+                <a href="page/about/{{ movie.id }}">
+                    <img class="home_img" src="assets/img/{{ movie.title }}.jpg" >
+                    <h2 class="home_title "> {{ movie.title }} </h2>
+                </a>
+            </section>
+            
+        {% endfor %}
+    
+    </section>
+{% endblock %}

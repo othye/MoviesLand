@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% block head %}
+        {% block meta %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% endblock %}
+        <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/foundation.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="icon" type="image/png" href="/assets/img/icon.png"/>
+        
+                
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+    
+        <div class="container">
+            
+            <header class="menu align-center">
+                <div class="logo">
+                    <img src="assets/img/logo.png">
+                </div>
+            </header>
+
+            {% block content %}
+            {% endblock %}
+        </div>
+</body>
+</html>
