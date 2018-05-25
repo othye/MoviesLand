@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 22 Mai 2018 à 14:48
+-- Généré le :  Jeu 24 Mai 2018 à 16:17
 -- Version du serveur :  5.7.21-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.28-0ubuntu0.16.04.1
 
@@ -64,7 +64,13 @@ INSERT INTO `actors` (`id`, `first_name`, `last_name`) VALUES
 (50, 'Hubert', 'Besson'),
 (53, 'Sébastien', 'Charbit'),
 (54, 'Doug', 'Hutchison'),
-(55, 'Michael', 'Jeter');
+(55, 'Michael', 'Jeter'),
+(56, 'Chadwick', 'Boseman'),
+(57, 'Michael B.  ', 'Jordan'),
+(58, 'Lupita ', 'Nyong\'o'),
+(59, 'Danai ', 'Gurira'),
+(60, 'Martin ', 'Freeman'),
+(61, 'Letitia ', 'Wright');
 
 -- --------------------------------------------------------
 
@@ -91,7 +97,8 @@ INSERT INTO `directors` (`id`, `first_name`, `last_name`) VALUES
 (6, 'Steven', 'Spielberg'),
 (7, 'Anthony', 'Byrne'),
 (8, 'James', 'cameron'),
-(9, 'hubert', 'besson');
+(9, 'hubert', 'besson'),
+(10, 'Ryan', 'Coogler');
 
 -- --------------------------------------------------------
 
@@ -127,7 +134,7 @@ INSERT INTO `genres` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `genres_movies` (
-  `genre_id` int(11) NOT NULL,
+  `genres_id` int(11) NOT NULL,
   `movies_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -135,7 +142,7 @@ CREATE TABLE `genres_movies` (
 -- Contenu de la table `genres_movies`
 --
 
-INSERT INTO `genres_movies` (`genre_id`, `movies_id`) VALUES
+INSERT INTO `genres_movies` (`genres_id`, `movies_id`) VALUES
 (3, 1),
 (21, 1),
 (4, 2),
@@ -151,7 +158,9 @@ INSERT INTO `genres_movies` (`genre_id`, `movies_id`) VALUES
 (8, 7),
 (6, 8),
 (7, 8),
-(6, 9);
+(1, 9),
+(2, 9),
+(8, 9);
 
 -- --------------------------------------------------------
 
@@ -177,9 +186,9 @@ INSERT INTO `movies` (`id`, `title`, `description`, `year_release`) VALUES
 (4, 'Avengers Infinity War', 'Les Vengeurs et leurs alliés doivent être prêts à tout sacrifier pour tenter de vaincre les puissants Thanos avant que son blitz de dévastation et de ruine ne mette fin à l\'univers.', 2018),
 (5, 'Ready Player One', 'Quand le créateur d\'un monde de réalité virtuelle appelé l\'OASIS meurt, il sort une vidéo dans laquelle il met au défi tous les utilisateurs d\'OASIS de trouver son Oeuf de Pâques, ce qui lui donnera sa chance.', 2018),
 (6, 'In Darkness', 'Un musicien aveugle entend un meurtre commis dans l\'appartement à l\'étage de la sienne qui l\'envoie dans les ténèbres criminelles de Londres.', 2018),
-(7, 'Avatar', 'L’action se déroule en 21541 sur Pandora, une des lunes de Polyphème, une planète géante gazeuse en orbite autour d\'Alpha Centauri A, le système solaire le plus proche de la Terre', NULL),
-(8, 'titanic', 'Il raconte l\'histoire de deux jeunes passagers du paquebot Titanic en avril 1912', 1997),
-(9, 'plus belle la vie', 'est un feuilleton télévisé français créé d\'après une idée originale d\'Hubert Besson et des personnages imaginés par Georges Desmouceaux, Bénédicte Achard, Magaly Richard-Serrano et Olivier Szulzynger', 2004);
+(7, 'Avatar', 'L’action se déroule en 21541 sur Pandora, une des lunes de Polyphème, une planète géante gazeuse en orbite autour d\'Alpha Centauri A, le système solaire le plus proche de la Terre', 2009),
+(8, 'Titanic', 'Il raconte l\'histoire de deux jeunes passagers du paquebot Titanic en avril 1912', 1997),
+(9, 'Black Panther', 'Après les événements qui se sont déroulés dans Captain America : Civil War, T’Challa revient chez lui prendre sa place sur le trône du Wakanda, une nation africaine technologiquement très avancée. Mais lorsqu’un vieil ennemi resurgit, le courage de T’Challa est mis à rude épreuve, aussi bien en tant que souverain qu’en tant que Black Panther. Il se retrouve entraîné dans un conflit qui menace non seulement le destin du Wakanda, mais celui du monde entier…', 2018);
 
 -- --------------------------------------------------------
 
@@ -219,10 +228,15 @@ INSERT INTO `movies_actors` (`movies_id`, `actors_id`) VALUES
 (6, 47),
 (7, 48),
 (8, 49),
-(9, 50),
 (9, 53),
 (3, 54),
-(2, 55);
+(2, 55),
+(9, 56),
+(9, 57),
+(9, 58),
+(9, 59),
+(9, 60),
+(9, 61);
 
 -- --------------------------------------------------------
 
@@ -245,11 +259,11 @@ INSERT INTO `movies_directors` (`movies_id`, `directors_id`) VALUES
 (3, 3),
 (4, 4),
 (4, 5),
-(6, 6),
+(5, 6),
 (7, 7),
 (7, 8),
 (8, 8),
-(9, 9);
+(9, 10);
 
 --
 -- Index pour les tables exportées
@@ -277,9 +291,9 @@ ALTER TABLE `genres`
 -- Index pour la table `genres_movies`
 --
 ALTER TABLE `genres_movies`
-  ADD PRIMARY KEY (`genre_id`,`movies_id`),
+  ADD PRIMARY KEY (`genres_id`,`movies_id`),
   ADD KEY `fk_genre_has_movies_movies1_idx` (`movies_id`),
-  ADD KEY `fk_genre_has_movies_genre1_idx` (`genre_id`);
+  ADD KEY `fk_genre_has_movies_genre1_idx` (`genres_id`);
 
 --
 -- Index pour la table `movies`
@@ -311,17 +325,17 @@ ALTER TABLE `movies_directors`
 -- AUTO_INCREMENT pour la table `actors`
 --
 ALTER TABLE `actors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT pour la table `directors`
 --
 ALTER TABLE `directors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT pour la table `movies`
 --
@@ -335,7 +349,7 @@ ALTER TABLE `movies`
 -- Contraintes pour la table `genres_movies`
 --
 ALTER TABLE `genres_movies`
-  ADD CONSTRAINT `fk_genre_has_movies_genre1` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_genre_has_movies_genre1` FOREIGN KEY (`genres_id`) REFERENCES `genres` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_genre_has_movies_movies1` FOREIGN KEY (`movies_id`) REFERENCES `movies` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --

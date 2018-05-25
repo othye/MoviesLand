@@ -23,33 +23,4 @@
         
     }
 
-
-    //require 'models/request.php';
-    /*require 'vendor/autoload.php';
-
-    // rendu du template
-    $loader = new Twig_Loader_Filesystem(__DIR__ . '/templates');
-    $twig = new Twig_Environment($loader, [
-        'cache' => false,   
-        'debug' => true,
-
-    ]);
-    $twig->addExtension(new Twig_Extension_Debug());
-
-    
-
-    echo $twig->render('home.html', array(
-        
-    )); */
-
-
-
-   
-
-    //echo '<pre>'; var_dump($data3['name']); echo '</pre>'; die();
-
-
-
-
-
 ?>

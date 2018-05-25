@@ -1,14 +1,14 @@
 .container{
     background: #ede8e8;
+    font-family: 'Exo', sans-serif;
 }
-
 .logo{
-    
+    width: 150px;
     margin-bottom: 50px;
 }
 
-.menu{
-    margin-left: 100px;
+nav a{
+    margin-bottom: 100px;
 }
 
 .content{
@@ -16,7 +16,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 50%;
+    width: 50em;
     background: white;
 }
 
@@ -33,7 +33,13 @@
 }
 
 .home_title{
-    font-size: 20px;
+    color: rgb(248, 66, 66);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.home_title:hover{
+    color: black;
 }
 
 
@@ -43,8 +49,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 50px 250px;
+    
 }
 
 #description{
     width: 400px;
 }
+

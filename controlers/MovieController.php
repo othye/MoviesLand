@@ -51,7 +51,7 @@ function movieCtrl($id) {
         'movie' => $movie,
         'genre' => $genre,
         'actor' => $actor,
-        'director' =>  $director
+        'director' => $director,
 
 
     ));

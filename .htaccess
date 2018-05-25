@@ -1,0 +1,18 @@
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+AddDefaultCharset UTF-8
+
+RewriteEngine on
+
+
+DirectoryIndex index.php?page=home
+
+
+
+RewriteRule ^page/([a-zA-Z0-9-z\-\_]+)$ index.php?page=$1 [L]
+RewriteRule ^page/([a-zA-Z0-9-z\-\_]+)/$ index.php?page=$1 [L]
+
+RewriteRule ^page/([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)$ index.php?page=$1&id=$2
+RewriteRule ^page/([a-zA-Z0-9-z\-\_]+)/([a-zA-Z0-9-z\-\_]+)/$ index.php?page=$1&id=$2
+
+

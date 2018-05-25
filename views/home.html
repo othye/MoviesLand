@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/foundation.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+
     <link rel="icon" type="image/png" href="assets/img/icon.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    
 
     <title>MoviesLand</title>
 </head>
@@ -17,17 +21,17 @@
             <div class="logo">
                 <img src="assets/img/logo.png">
             </div>
-            
+           
         </header>
     
-        <section class="content" id="home">
+        <section class="content responsive" id="home">
             
             {% for movie in movies %}
 
                 <section class="movies">
-                    <a href="index.php?page=about&id={{ movie.id }}">
+                    <a href="page/about/{{ movie.id }}">
                         <img class="home_img" src="assets/img/{{ movie.title }}.jpg" >
-                        <h2 class="home_title"> {{ movie.title }} </h2>
+                        <h2 class="home_title "> {{ movie.title }} </h2>
                     </a>
                 </section>
                 
